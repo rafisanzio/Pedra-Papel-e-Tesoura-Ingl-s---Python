@@ -34,8 +34,10 @@ actions: list[str] = [rock, paper, scissors]
 player_choice: int = int(input("Type 0 for rock, 1 for paper and 2 for scissors:\n"))
 computer_choice: int = rng.randint(0, 2)
 
-print("Your choice:" + actions[player_choice])
-print("COM choice:" + actions[computer_choice])
+if player_choice >= 0 and player_choice <= 2:
+    print("Your choice:" + actions[player_choice])
+    print("COM choice:" + actions[computer_choice])
+
 
 match player_choice:
     case 0:
@@ -59,3 +61,6 @@ match player_choice:
             print(win_msg)
         else:
             print("draw!")
+
+    case _:
+        print("Invalid Choice! You lose!")
